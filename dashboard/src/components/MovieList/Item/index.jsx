@@ -1,17 +1,14 @@
 function MovieListItem({ movie }) {
+  let movieGenre = movie.genre ? movie.genre.name : ""
+
+
   return (
     <tr>
       <td>{movie.title}</td>
-      <td>{movie.duration}</td>
       <td>{movie.rating}</td>
-      <td>
-        <ul>
-          {movie.genres.map((genre, i) => (
-            <li key={genre + i}>{genre.name}</li>
-          ))}
-        </ul>
-      </td>
       <td>{movie.awards}</td>
+      <td>{movie.length}</td>
+      <td>{movieGenre}</td>
     </tr>
   );
 }

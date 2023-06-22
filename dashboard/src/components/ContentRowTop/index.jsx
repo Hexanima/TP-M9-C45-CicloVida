@@ -1,8 +1,8 @@
 import ContentRowMovies from "../ContentRowMovies";
-import GenresInDb from "../GenresInDb";
 import LastMovieInDb from "../LastMovieInDb";
 import mandalorian from "../../assets/images/mandalorian.jpg";
-import MovieList from "../MovieList";
+import Movie from "../Movie";
+import Genre from "../Genre";
 
 function ContentRowTop() {
   return (
@@ -26,20 +26,10 @@ function ContentRowTop() {
         {/* <!-- End content row last movie in Data Base --> */}
 
         {/* <!-- Genres in DB --> */}
-        <GenresInDb genreList={["Acción", "Hola"]} />
+        <Genre />
       </div>
 
-      <MovieList
-        movieList={[
-          {
-            title: "Hola",
-            rating: 2,
-            duration: 210,
-            genres: [{ name: "Accion" }],
-            awards: 5,
-          },
-        ]}
-      />
+      <Movie />
     </div>
   );
 }

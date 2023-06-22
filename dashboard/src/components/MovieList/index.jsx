@@ -1,24 +1,33 @@
 import MovieListItem from "./Item";
+import PropTypes from "prop-types";
 
-function MovieList({ movieList }) {
+function MovieList({ movies }) {
   return (
-    <table class="table">
+    <table className="table">
       <thead>
         <tr>
           <th scope="col">Título</th>
-          <th scope="col">Duración</th>
-          <th scope="col">Rating</th>
-          <th scope="col">Género</th>
+          <th scope="col">Calificación</th>
           <th scope="col">Premios</th>
+          <th scope="col">Duración</th>
+          <th scope="col">Género</th>
         </tr>
       </thead>
       <tbody>
-        {movieList.map((movie, i) => (
+        {movies.map((movie, i) => (
           <MovieListItem movie={movie} key={movie + i} />
         ))}
       </tbody>
     </table>
   );
 }
+
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+MovieList.defaultProps = {
+  movies: [],
+};
 
 export default MovieList;

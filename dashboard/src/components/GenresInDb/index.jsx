@@ -1,19 +1,26 @@
 import PropTypes from "prop-types";
 import GenresInDbCard from "./Card";
 
-function GenresInDb({ genreList }) {
+function GenresInDb({ genres }) {
+  function handleMouseOver() {
+    document.querySelector(".fondoCaja").classList.add("bg-secondary");
+  }
+
   return (
     <div className="col-lg-6 mb-4">
       <div className="card shadow mb-4">
         <div className="card-header py-3">
-          <h5 className="m-0 font-weight-bold text-gray-800">
+          <h5
+            className="m-0 font-weight-bold text-gray-800"
+            onMouseOver={handleMouseOver}
+          >
             Genres in Data Base
           </h5>
         </div>
-        <div className="card-body">
+        <div className="card-body fondoCaja">
           <div className="row">
-            {genreList.map((genre, i) => (
-              <GenresInDbCard genre={genre} key={genre+i}/>
+            {genres.map(genre => (
+              <GenresInDbCard name={genre.name} key={genre.id} />
             ))}
           </div>
         </div>
@@ -23,11 +30,11 @@ function GenresInDb({ genreList }) {
 }
 
 GenresInDb.propTypes = {
-  genreList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 GenresInDb.defaultProps = {
-  genreList: [],
+  genres: [],
 };
 
 export default GenresInDb;
